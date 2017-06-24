@@ -1,10 +1,18 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
+# Discription .: Translate any text into Greeklish, print on stdout or write to file/s
+# Author ......: Sotirios M. Roussis aka. xtonousou <xtonousou@gmail.com>
+# Date ........: 20170624
 
 import sys
 import codecs as cs
+try:
+	from googletrans import Translator
+except:
+	print 'You must run \'sudo python2 -m pip install -r requirements.txt\' first'
+	sys.exit()
 
-py_script_version = '1.0.0'
+py_script_version = '1.0.1'
 
 vowelChars = {
 	'Ά': 'A',
@@ -88,6 +96,16 @@ symbolChars = {
 	'»': '>>'
 }
 
+translateArgChars = {
+	'-t': 0,
+	'--translate': 1
+}
+
+ttsArgChars = {
+	'-v': 0,
+	'--voice': 1
+}
+
 writeArgChars = {
 	'-w': 0,
 	'--write': 1
@@ -103,6 +121,7 @@ versionArgChars = {
 	'--version': 1
 }
 
+
 def version():
 	print py_script_version
 	
@@ -113,14 +132,15 @@ def help():
 	print
 	print ' Version: ' + py_script_version
 	print
-	print ' Usage: grklsh [options]? file1 file2 fileN'
+	print ' Usage: grklsh [options]'
 	print
-	print ' Translate Greek into Greeklish and/or print on the standard output'
+	print ' Translate any text into Greeklish, print on stdout or write to file/s'
 	print
 	print ' Options:'
-	print '  -w, --write   write to \'.grklsh\' files'
-	print '  -h, --help    output usage information'
-	print '  -v, --version output the version number'
+	print '  -t|--translate translate anything into Greeklish'
+	print '  -w|--write     write to \'.grklsh\' files'
+	print '  -h|--help      output usage information'
+	print '  -v|--version   output the version number'
 	print
 	
 	return sys.exit()
@@ -159,10 +179,8 @@ def toGreeklish(list_):
 	return [c for c in tmp if c is not None], flag
 
 
-def main(args):
-	flag = False
-
-	if not len(args) > 0:
+def cat(lang):
+	if lang is 'english':
 		while True:
 			try:
 				text = raw_input().decode('utf-8')
@@ -171,9 +189,34 @@ def main(args):
 			except KeyboardInterrupt:
 				print 'exit'
 				sys.exit()
+	else:
+		translator = Translator()
+		while True:
+			try:
+				text = raw_input()
+
+				translated = translator.translate(text, dest='el')
+				translatedText = unicode(translated.text)
+				
+				newData, isTranlated = toGreeklish(list(translatedText))
+				print ''.join(newData)
+			except KeyboardInterrupt:
+				print 'exit'
+				sys.exit()
+
+
+def main(args):
+	flag = False
+
+	if not len(args) > 0:
+		cat('english')
 
 	for arg in args:
-		if arg in writeArgChars:
+		if arg in translateArgChars:
+			if not len(args) > 1:
+				cat('other')
+				continue
+		elif arg in writeArgChars:
 			if len(args) > 1:
 				flag = True
 				continue
