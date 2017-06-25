@@ -12,7 +12,7 @@ except:
 	print 'You must run \'sudo python2 -m pip install -r requirements.txt\' first'
 	sys.exit()
 
-py_script_version = '1.0.1'
+py_script_version = '1.0.2'
 
 vowelChars = {
 	'Ά': 'A',
@@ -180,7 +180,7 @@ def toGreeklish(list_):
 
 
 def cat(lang):
-	if lang is 'english':
+	if lang is 'greek':
 		while True:
 			try:
 				text = raw_input().decode('utf-8')
@@ -205,11 +205,11 @@ def cat(lang):
 				sys.exit()
 
 
-def main(args):
+def handleSystemArguments(args):
 	flag = False
 
 	if not len(args) > 0:
-		cat('english')
+		cat('greek')
 
 	for arg in args:
 		if arg in translateArgChars:
@@ -236,11 +236,9 @@ def main(args):
 				print 'File \'' + arg + '\'' + ':' + '\n'
 				print ''.join(newData)
 				print '----------------------------------------' + '\n'
-
 			elif flag:
 				if isTranlated:
 					print '\'' + arg + '\' file has been translated successfully'
-
 				# Write to file/s
 				f = cs.open(str(arg) + '.grklsh', 'w', 'utf-8')
 				flag = False
@@ -250,6 +248,9 @@ def main(args):
 			print "I/O error({0}): {1} {2}"\
 				.format(e.errno, e.strerror, '\'' + arg + '\'')
 
+
+def main(args):
+	handleSystemArguments(args)
 
 if __name__ == '__main__':
 	main(sys.argv[1:])
