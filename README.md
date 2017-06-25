@@ -79,7 +79,7 @@ $ sudo python2 -m pip install -r requirements.txt
 
 #### on Windows :unamused:
 
-You can read this guide
+You can read this [guide]
 
 ### Changelog
 
