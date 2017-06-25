@@ -117,8 +117,8 @@ OK, now that you have installed python, pip and you tweaked the environment vari
 <!--- Links -->
 
 [here]: https://github.com/xtonousou/grklsh/releases
-[Python 2.7 installation]: #Python%202.7%20installation
-[Environment Variables for python (optional)]: #Python%202.7%20installation
-[PIP Installation]: #Python%202.7%20installation
-[Environment Variables for pip (optional)]: #Python%202.7%20installation
-[grklsh Installation]: #Python%202.7%20installation
+[Python 2.7 installation]: #python-27-installation
+[Environment Variables for python (optional)]: #environment-variables-for-python-optional
+[PIP Installation]: #pip-installation
+[Environment Variables for pip (optional)]: #environment-variables-for-pip-optional
+[grklsh Installation]: #grklsh-installation
