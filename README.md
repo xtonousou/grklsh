@@ -79,43 +79,7 @@ $ sudo python2 -m pip install -r requirements.txt
 
 #### on Windows :unamused:
 
-Installation of Python itself should be fairly straight-forward
-
-* Download and execute the latest Python 2.* installation package from [here]
-
-* Verify a successful installation by opening a command prompt window and navigating to your Python installation directory (default is `C:\Python27`). Type `python` from this location to launch the Python interpreter
-
-	```
-	Microsoft Windows [Version 6.2.9200]
-	(c) 2012 Microsoft Corporation. All rights reserved.
-
-	C:\Users\Username>cd C:\Python27
-
-	C:\Python27>python
-	Python 2.7.8 (default, Jun 30 2014, 16:03:49) [MSC v.1500 32 bit (Intel)] on win
-	32
-	Type "help", "copyright", "credits" or "license" for more information.
-	>>>
-	```
-
-* It would be nice to be able to run Python from any location without having to constantly reference the full installation path name. This can by done by adding the Python installation path to Windows' `PATH` `ENVIRONMENT VARIABLE`
-  * In **Windows 7, 8, 8.1 and 10**, simply searching for "environment variables" will present the option to `Edit the system environment variables`. This will open the `System Properties / Advanced` tab
-  * In Windows XP, right click on `My Computer->Properties` to open `System Properties` and click on the `Advanced` tab.
-1. On the `System Properties / Advanced` tab, click `Environment Variables` to open `User Variables` and `System Variables`
-2. Create a new `System Variable` named Variable name: `PYTHON_HOME` and  Variable value: `c:\Python27` (or whatever your installation path was)
-3. Find the system variable called `Path` and click `Edit`
-4. Add the following text to the end of the Variable value: `;%PYTHON_HOME%\;%PYTHON_HOME%\Scripts\`
-5. Verify a successful environment variable update by opening a new command prompt window (important!) and typing `python` from any location
-  ```
-  Microsoft Windows [Version 6.2.9200]
-  (c) 2012 Microsoft Corporation. All rights reserved.
-  
-  C:\Users\Username>python
-  Python 2.7.8 (default, Jun 30 2014, 16:03:49) [MSC v.1500 32 bit (Intel)] on win 32
-  Type "help", "copyright", "credits" or "license" for more information.
-  >>>
-  ```
-
+You can read this guide
 
 ### Changelog
 
@@ -131,5 +95,6 @@ Copyright (c) **2017** by **Sotirios M. Roussis**. Some rights reserved.
 <!--- Links -->
 
 [here]: https://www.python.org/downloads/windows/
+[guide]: WINDOWS_INSTALLATION.md
 [this]: CHANGELOG.md
 [license]: LICENSE.md
