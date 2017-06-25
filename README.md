@@ -1,20 +1,33 @@
 ### grklsh
-#### :greece: :link: :us:
 
 > Greeklish, a portmanteau of the words Greek and English, also known as Grenglish, Latinoellinika/Λατινοελληνικά or ASCII Greek, is the Greek language written using the Latin alphabet.
 
-### What is it about?
+### About
 
-A small Python2 script that translates any text into Greeklish.
+`grklsh` is a small script written in **Python 2** that translates any text into Greeklish. It reads from stdin or from the arguments and prints on stdout or writes to files.
 
 #### Features
 
-* File translation
-* `cat` like functionality
+* <kbd>Type</kbd> and <kbd>Enter</kbd> translation (Any language)
+* File translation (Currently only Greek &#10141; Greeklish)
 
-*Greek can also be translated into Greeklish*
+### Installation
 
-### How can I use it?
+#### on :penguin: Linux or :apple: MacOS
+
+You only need `git` and of course `python2`
+
+```bash
+$ git clone https://github.com/xtonousou/grklsh.git
+$ cd grklsh/
+$ sudo python2 -m pip install -r requirements.txt
+```
+
+#### on Windows :unamused:
+
+You can read this [guide]
+
+### Usage
 
 ##### Greek &#10141; Greeklish
 
@@ -64,22 +77,6 @@ $ grklsh.py -w file1 file2 -w file3 -w file4
 ```
 
 This will print on stdout the translated text of the file `file2` but it will also generate three files: `file1.grklsh`, `file3.grklsh` and `file4.grklsh` which contain the translated text of each file
-
-### How can I use it?
-
-#### on :penguin: Linux or :apple: MacOS
-
-You only need `git` and of course `python2`
-
-```bash
-$ git clone https://github.com/xtonousou/grklsh.git
-$ cd grklsh/
-$ sudo python2 -m pip install -r requirements.txt
-```
-
-#### on Windows :unamused:
-
-You can read this [guide]
 
 ### Changelog
 
