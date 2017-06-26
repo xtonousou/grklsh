@@ -1,267 +1,256 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
-# Discription .: Translate any text into Greeklish, print on stdout, write to file/s 
 # Author ......: Sotirios M. Roussis aka. xtonousou <xtonousou@gmail.com>
 # Date ........: 20170626
 
+"""
+    Translate any text into Greeklish, print on stdout, write to file/s
+"""
+
 try:
-	import sys
-	import codecs as cs
-	try:
-		from googletrans import Translator
-	except ImportError: # different msgs for different OSes
-		if platform == "linux" or platform == "linux2":
-			print 'You must run \'sudo python2 -m pip install -r requirements.txt\' first'
-		elif platform == "darwin":
-		  print 'You must run \'sudo pip install -r requirements.txt\' first'
-		elif platform == "win32":
-		  print 'You must run \'pip install -r requirements.txt\' first'
-			sys.exit()
+    from sys import argv, platform, stdin
+    import locale
+    import codecs as cs
+    try:
+        import dictionaries as d
+    except ImportError:
+        print 'You must have the \'dictionaries.py\' file in the script\' s directory to continue'
+        exit()
+    try:
+        from googletrans import Translator
+    except ImportError:
+        if platform == "linux" or platform == "linux2":
+            print 'You must run \'sudo python2 -m pip install -r requirements.txt\' first'
+
+        elif platform == "darwin":
+            print 'You must run \'sudo pip install -r requirements.txt\' first'
+
+        elif platform == "win32":
+            print 'You must run \'pip install -r requirements.txt\' first'
+            exit()
 except KeyboardInterrupt:
-	print '\nexit'
-	sys.exit()
+    print '\nexit'
+    exit()
 
 
-py_script_name = sys.argv[0].strip('.')[::-1].strip('.')[3:][::-1]
-py_script_version = '1.0.2'
-
-vowelChars = {
-	'Ά': 'A',
-	'Α': 'A',
-	'ά': 'a',
-	'α': 'a',
-	'Έ': 'E',
-	'Ε': 'E',
-	'έ': 'e',
-	'ε': 'e',
-	'Ή': 'H',
-	'Η': 'H',
-	'ή': 'h',
-	'η': 'h',
-	'Ϊ': 'I',
-	'Ί': 'I',
-	'Ι': 'I',
-	'ΐ': 'i',
-	'ϊ': 'i',
-	'ί': 'i',
-	'ι': 'i',
-	'Ό': 'O',
-	'Ο': 'O',
-	'ό': 'o',
-	'ο': 'o',
-	'Ϋ': 'Y',
-	'Ύ': 'Y',
-	'Υ': 'Y',
-	'ΰ': 'y',
-	'ϋ': 'y',
-	'ύ': 'y',
-	'υ': 'y',
-	'Ώ': 'W',
-	'Ω': 'W',
-	'ώ': 'w',
-	'ω': 'w'
-}
-
-consonantChars = {
-	'Β': 'B',
-	'β': 'b',
-	'Γ': 'G',
-	'γ': 'g',
-	'Δ': 'D',
-	'δ': 'd',
-	'Ζ': 'Z',
-	'ζ': 'z',
-	'Θ': '8',
-	'θ': '8',
-	'Κ': 'K',
-	'κ': 'k',
-	'Λ': 'L',
-	'λ': 'l',
-	'Μ': 'M',
-	'μ': 'm',
-	'Ν': 'N',
-	'ν': 'n',
-	'Ξ': '3',
-	'ξ': '3',
-	'Π': 'P',
-	'π': 'p',
-	'Ρ': 'R',
-	'ρ': 'r',
-	'Σ': 'S',
-	'σ': 's',
-	'ς': 's',
-	'Τ': 'T',
-	'τ': 't',
-	'Φ': 'F',
-	'φ': 'f',
-	'Χ': 'X',
-	'χ': 'x',
-	'Ψ': 'Ps',
-	'ψ': 'ps'
-}
-
-symbolChars = {
-	';': '?',
-	'·': '-',
-	'«': '<<',
-	'»': '>>'
-}
-
-translateArgChars = {
-	'-t': 0,
-	'--translate': 1
-}
-
-ttsArgChars = {
-	'-v': 0,
-	'--voice': 1
-}
-
-writeArgChars = {
-	'-w': 0,
-	'--write': 1
-}
-
-helpArgChars = {
-	'-h': 0,
-	'--help': 1
-}
-
-versionArgChars = {
-	'-v': 0,
-	'--version': 1
-}
+SCRIPT_NAME = argv[0].strip('.')[::-1].strip('.')[3:][::-1]
+SCRIPT_VERSION = '1.0.2'
 
 
-def version():
-	print py_script_name + ' ' + py_script_version
-	
-	return sys.exit()
+def version_message():
+
+    """
+        Prints the script's name with the version
+
+        @return: exit()
+    """
+
+    print SCRIPT_NAME + ' ' + SCRIPT_VERSION
+
+    return exit()
 
 
-def help():
-	print
-	print ' Version: ' + py_script_version
-	print
-	print ' Usage: ' + py_script_name + ' [options]'
-	print
-	print ' Translate any text into Greeklish, print on stdout, write to file/s'
-	print
-	print ' Options:'
-	print '  -t|--translate translate into Greeklish'
-	print '  -w|--write     write to \'.' + py_script_name + '\' files'
-	print '  -h|--help      output usage information'
-	print '  -v|--version   output the version number'
-	print
-	
-	return sys.exit()
+def help_message():
+
+    """
+        Prints all the available script's options
+
+        @return: exit()
+    """
+
+    print
+    print ' Version: ' + SCRIPT_VERSION
+    print
+    print ' Usage: ' + SCRIPT_NAME + ' [options]'
+    print
+    print ' Translate any text into Greeklish, print on stdout, write to file/s'
+    print
+    print ' Options:'
+    print '  -t|--translate translate into Greeklish'
+    print '  -w|--write     write to \'.' + SCRIPT_NAME + '\' files'
+    print '  -h|--help      output usage information'
+    print '  -v|--version   output the version number'
+    print
+
+    return exit()
 
 
-def readByCharToList(file_):
-	data = []
-	f = cs.open(file_, 'r', 'utf-8')
-		
-	for line in f:
-		data.extend(line)
-			
-	return data
+def get_arg_list(arg):
+
+    """
+        Creates and returns a list of arguments
+
+        @param arg: {'h', 't', 'v', 'w'}
+        @return arg_list: a list with the available arguments
+    """
+
+    if arg == 'h':
+        arg_list = ['-h', '--help']
+
+    elif arg == 't':
+        arg_list = ['-t', '--translate']
+
+    elif arg == 'v':
+        arg_list = ['-v', '--version']
+
+    elif arg == 'w':
+        arg_list = ['-w', '--write']
+
+    return arg_list
 
 
-def toGreeklish(list_):
-	flag = False
-	tmp = [None] * 999999 #TODO fix static malloc
+def read_file_by_char_to_list(file_):
 
-	for char in xrange(0, len(list_)):
+    """
+        Reads a file char by char and creates a list with those chars
 
-		uchar = list_[char].encode('utf-8')
+        @param file_: the file to be read
+        @return data: a char list
+    """
 
-		if uchar in vowelChars:
-			tmp[char] = vowelChars.get(uchar)
-		elif uchar in consonantChars:
-			tmp[char] = consonantChars.get(uchar)
-		elif uchar in symbolChars:
-			tmp[char] = symbolChars.get(uchar)
-		else:
-			tmp[char] = list_[char]
+    data = []
+    buffer_ = cs.open(file_, 'r', 'utf-8')
 
-		if char == len(list_) - 1:
-			flag = True
+    for line in buffer_:
+        data.extend(line)
 
-	return [c for c in tmp if c is not None], flag
+    return data
+
+
+def to_greeklish(list_):
+
+    """
+        Converts a char list to Greeklish using 'dictionaries' file
+
+        @param list_: a char list e.g. list_ = ['a', 'b']
+        @return tmp: a char list that contains the translated text
+    """
+
+    tmp = [None] * 999999
+
+    for char in xrange(0, len(list_)):
+
+        char_dict = d.get_char_dict()
+        uchar = list_[char].encode('utf-8')
+
+        if uchar in char_dict:
+            tmp[char] = char_dict.get(uchar)
+
+        else:
+            tmp[char] = list_[char]
+
+    return [c for c in tmp if c is not None]
 
 
 def cat(lang):
-	if lang is 'greek':
-		while True:
-			try:
-				text = raw_input().decode('utf-8')
-				newData, isTranlated = toGreeklish(list(text))
-				print ''.join(newData)
-			except KeyboardInterrupt:
-				print '\nexit'
-				sys.exit()
-	else:
-		translator = Translator()
-		while True:
-			try:
-				text = raw_input()
 
-				translated = translator.translate(text, dest='el')
-				translatedText = unicode(translated.text)
-				
-				newData, isTranlated = toGreeklish(list(translatedText))
-				print ''.join(newData)
-			except KeyboardInterrupt:
-				print '\nexit'
-				sys.exit()
+    """
+        Translate any text into Greeklish by [typing + enter]
+
+        @param lang: a string to check which mode to activate {'greek', anything}
+    """
+
+    if lang == 'greek':
+        while True:
+            try:
+                text = raw_input().decode(stdin.encoding
+                                          or locale.getpreferredencoding(True))
+
+                new_data = to_greeklish(list(text))
+                print ''.join(new_data)
+            except KeyboardInterrupt:
+                print '\nexit'
+                exit()
+    else:
+        translator = Translator()
+        while True:
+            try:
+                text = raw_input().decode(stdin.encoding
+                                          or locale.getpreferredencoding(True))
+
+                translated = translator.translate(text, dest='el')
+                translated_text = unicode(translated.text)
+
+                new_data = to_greeklish(list(translated_text))
+                print ''.join(new_data)
+            except KeyboardInterrupt:
+                print '\nexit'
+                exit()
 
 
-def handleSystemArguments(args):
-	flag = False
+def print_or_write_list(arg, flag):
 
-	if not len(args) > 0:
-		cat('greek')
+    """
+        Prints list or writes to file/s
 
-	for arg in args:
-		if arg in translateArgChars:
-			if not len(args) > 1:
-				cat('other')
-				continue
-		elif arg in writeArgChars:
-			if len(args) > 1:
-				flag = True
-				continue
-			else:
-				print 'You need to specify which files to translate'
-				sys.exit()
-		elif arg in helpArgChars:
-			help()
-		elif arg in versionArgChars:
-			version()
+        @param arg: each file
+        @param flag: boolean value
+    """
 
-		try:
-			# Translate list
-			newData, isTranlated = toGreeklish(readByCharToList(arg))
-			
-			if not flag:
-				print 'File \'' + arg + '\'' + ':' + '\n'
-				print ''.join(newData)
-				print '----------------------------------------' + '\n'
-			elif flag:
-				if isTranlated:
-					print '\'' + arg + '\' file has been translated successfully'
-				# Write to file/s
-				f = cs.open(str(arg) + '.grklsh', 'w', 'utf-8')
-				flag = False
-				for char in xrange(0, len(newData)):
-					f.write(newData[char])
-		except IOError as e:
-			print "I/O error({0}): {1} {2}"\
-				.format(e.errno, e.strerror, '\'' + arg + '\'')
+    try:
+        new_data = to_greeklish(read_file_by_char_to_list(arg))
+
+        if not flag:
+            print 'File \'' + arg + '\'' + ':' + '\n'
+            print ''.join(new_data)
+            print '----------------------------------------' + '\n'
+
+        elif flag:
+            print '\'' + arg + '\' file has been translated successfully'
+
+            # Write to file/s
+            buffer_ = cs.open(str(arg) + '.grklsh', 'w', 'utf-8')
+            flag = False
+
+            for char in xrange(0, len(new_data)):
+                buffer_.write(new_data[char])
+    except IOError as error:
+        print "I/O error({0}): {1} {2}"\
+            .format(error.errno, error.strerror, '\'' + arg + '\'')
 
 
 def main(args):
-	handleSystemArguments(args)
+
+    """
+        The main function; parsing command line arguments; write to files
+
+        @param args: all command line arguments after the first e.g. argv[1:]
+    """
+
+    flag = False
+
+    if len(args) < 1:
+        cat('greek')
+
+    for arg in args:
+
+        # translate
+        if arg in get_arg_list('t'):
+
+            if len(args) < 2:
+                cat('other')
+                continue
+
+        # write
+        elif arg in get_arg_list('w'):
+
+            if len(args) > 1:
+                flag = True
+                continue
+
+            else:
+                print 'You need to specify which files to translate'
+                exit()
+
+        # help
+        elif arg in get_arg_list('h'):
+            help_message()
+
+        # version
+        elif arg in get_arg_list('v'):
+            version_message()
+
+        print_or_write_list(arg, flag)
 
 if __name__ == '__main__':
-	main(sys.argv[1:])
+    main(argv[1:])

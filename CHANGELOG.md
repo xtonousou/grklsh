@@ -1,13 +1,17 @@
-# Change Log
+# Changelog
 All notable changes to this project will be documented in this file.
 
 ## [1.0.2] - 2017-06-26
 ### Added
 * Exceptions to handle import errors and different Operating Systems
+* Dictionary {'…': '...'}
 * WINDOWS_INSTALLATION.md
 
+### Removed
+* PEP8 warnings and errors
+
 ### Changed
-* Dictionary {'θ':'th' => 'θ':'8', 'ξ':'ks' => 'ξ':'3'}
+* Dictionary {'θ':'th' => 'θ':'8', 'ξ':'ks' => 'ξ':'3', '·': '-' => '·': ';'}
 * README.md
 
 ## [1.0.1] - 2017-06-24
@@ -21,4 +25,4 @@ All notable changes to this project will be documented in this file.
 
 ## [1.0.0] - 2017-06-23
 ### Added
-* Initial commit.
+* Initial commit
