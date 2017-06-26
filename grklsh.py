@@ -1,17 +1,18 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
-# Discription .: Translate any text into Greeklish, print on stdout or write to file/s
+# Discription .: Translate any text into Greeklish, print on stdout, write to file/s 
 # Author ......: Sotirios M. Roussis aka. xtonousou <xtonousou@gmail.com>
-# Date ........: 20170624
+# Date ........: 20170626
 
 import sys
 import codecs as cs
 try:
 	from googletrans import Translator
-except:
+except: # different msgs for different OSes
 	print 'You must run \'sudo python2 -m pip install -r requirements.txt\' first'
 	sys.exit()
 
+py_script_name = sys.argv[0].strip('.')[::-1].strip('.')[3:][::-1]
 py_script_version = '1.0.2'
 
 vowelChars = {
@@ -60,8 +61,8 @@ consonantChars = {
 	'δ': 'd',
 	'Ζ': 'Z',
 	'ζ': 'z',
-	'Θ': 'Th',
-	'θ': 'th',
+	'Θ': '8',
+	'θ': '8',
 	'Κ': 'K',
 	'κ': 'k',
 	'Λ': 'L',
@@ -70,8 +71,8 @@ consonantChars = {
 	'μ': 'm',
 	'Ν': 'N',
 	'ν': 'n',
-	'Ξ': 'Ks',
-	'ξ': 'ks',
+	'Ξ': '3',
+	'ξ': '3',
 	'Π': 'P',
 	'π': 'p',
 	'Ρ': 'R',
@@ -123,7 +124,7 @@ versionArgChars = {
 
 
 def version():
-	print py_script_version
+	print py_script_name + ' ' + py_script_version
 	
 	return sys.exit()
 
@@ -132,13 +133,13 @@ def help():
 	print
 	print ' Version: ' + py_script_version
 	print
-	print ' Usage: grklsh [options]'
+	print ' Usage: ' + py_script_name + ' [options]'
 	print
-	print ' Translate any text into Greeklish, print on stdout or write to file/s'
+	print ' Translate any text into Greeklish, print on stdout, write to file/s'
 	print
 	print ' Options:'
-	print '  -t|--translate translate anything into Greeklish'
-	print '  -w|--write     write to \'.grklsh\' files'
+	print '  -t|--translate translate into Greeklish'
+	print '  -w|--write     write to \'.' + py_script_name + '\' files'
 	print '  -h|--help      output usage information'
 	print '  -v|--version   output the version number'
 	print

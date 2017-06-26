@@ -6,14 +6,19 @@
 
 `grklsh` is a small script written in **Python 2** that translates any text into Greeklish. It reads from stdin or from the arguments and prints on stdout or writes to files.
 
+<a href="https://en.wikipedia.org/wiki/Greeklish">
+    <img src="/imgs/banner.jpg" alt="grklsh logo"
+         title="Greeklish Banner" align="right" />
+</a>
+
 #### Features
 
-* <kbd>Type</kbd> and <kbd>Enter</kbd> translation (Any language)
+* <kbd>Type</kbd> and <kbd>Enter</kbd> translation (Any language &#10141; Greeklish)
 * File translation (Currently only Greek &#10141; Greeklish)
 
 ### Installation
 
-#### on :penguin: Linux or :apple: MacOS
+#### on Linux and on MacOS
 
 You only need `git` and of course `python2`
 
@@ -23,7 +28,7 @@ $ cd grklsh/
 $ sudo python2 -m pip install -r requirements.txt
 ```
 
-#### on Windows :unamused:
+#### on Windows
 
 You can read this [guide]
 
@@ -91,6 +96,7 @@ Copyright (c) **2017** by **Sotirios M. Roussis**. Some rights reserved.
 
 <!--- Links -->
 
+[banner]: /imgs/banner.jpg
 [here]: https://www.python.org/downloads/windows/
 [guide]: WINDOWS_INSTALLATION.md
 [this]: CHANGELOG.md
