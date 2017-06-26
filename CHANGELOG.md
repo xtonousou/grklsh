@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [1.0.2] - 2017-06-26
 ### Added
+* Exceptions to handle import errors and different Operating Systems
 * WINDOWS_INSTALLATION.md
 
 ### Changed

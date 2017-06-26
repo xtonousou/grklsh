@@ -4,13 +4,23 @@
 # Author ......: Sotirios M. Roussis aka. xtonousou <xtonousou@gmail.com>
 # Date ........: 20170626
 
-import sys
-import codecs as cs
 try:
-	from googletrans import Translator
-except: # different msgs for different OSes
-	print 'You must run \'sudo python2 -m pip install -r requirements.txt\' first'
+	import sys
+	import codecs as cs
+	try:
+		from googletrans import Translator
+	except ImportError: # different msgs for different OSes
+		if platform == "linux" or platform == "linux2":
+			print 'You must run \'sudo python2 -m pip install -r requirements.txt\' first'
+		elif platform == "darwin":
+		  print 'You must run \'sudo pip install -r requirements.txt\' first'
+		elif platform == "win32":
+		  print 'You must run \'pip install -r requirements.txt\' first'
+			sys.exit()
+except KeyboardInterrupt:
+	print '\nexit'
 	sys.exit()
+
 
 py_script_name = sys.argv[0].strip('.')[::-1].strip('.')[3:][::-1]
 py_script_version = '1.0.2'
@@ -188,7 +198,7 @@ def cat(lang):
 				newData, isTranlated = toGreeklish(list(text))
 				print ''.join(newData)
 			except KeyboardInterrupt:
-				print 'exit'
+				print '\nexit'
 				sys.exit()
 	else:
 		translator = Translator()
@@ -202,7 +212,7 @@ def cat(lang):
 				newData, isTranlated = toGreeklish(list(translatedText))
 				print ''.join(newData)
 			except KeyboardInterrupt:
-				print 'exit'
+				print '\nexit'
 				sys.exit()
 
 

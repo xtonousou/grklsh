@@ -33,7 +33,7 @@ Installation of Python itself should be fairly straight-forward
 
 * It would be nice to be able to run Python from any location without having to constantly reference the full installation path name. This can by done by adding the Python installation path to Windows' `PATH` `ENVIRONMENT VARIABLE`
 
-  * In **Windows 7, 8, 8.1 and 10**, simply searching for "environment variables" will present the option to `Edit the system environment variables`. This will open the `System Properties / Advanced` tab
+  * In Windows 7, 8, 8.1 and 10, simply searching for "environment variables" will present the option to `Edit the system environment variables`. This will open the `System Properties / Advanced` tab
 
   * In Windows XP, right click on `My Computer->Properties` to open `System Properties` and click on the `Advanced` tab.
 

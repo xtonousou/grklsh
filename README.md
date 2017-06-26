@@ -7,9 +7,9 @@
 `grklsh` is a small script written in **Python 2** that translates any text into Greeklish. It reads from stdin or from the arguments and prints on stdout or writes to files.
 
 <a href="https://en.wikipedia.org/wiki/Greeklish">
-    <img src="/imgs/banner.jpg" alt="grklsh logo"
+    <img src="/imgs/board.png" alt="grklsh logo"
          title="Greeklish Banner" align="right"
-         		width="42%"/>
+         		width="40%"/>
 </a>
 
 #### Features
@@ -34,6 +34,13 @@ $ sudo python2 -m pip install -r requirements.txt
 You can read this [guide]
 
 ### Usage
+
+#### Table Of Contents
+
+* [Greek &#10141; Greeklish]
+* [Any language &#10141; Greeklish]
+* [Files containing Greek &#10141; New files in Greeklish]
+* [Files containing Greek &#10141; New files in Greeklish (PARTIALLY)]
 
 ##### Greek &#10141; Greeklish
 
@@ -84,6 +91,10 @@ $ grklsh.py -w file1 file2 -w file3 -w file4
 
 This will print on stdout the translated text of the file `file2` but it will also generate three files: `file1.grklsh`, `file3.grklsh` and `file4.grklsh` which contain the translated text of each file
 
+### Credits
+
+* [nfldb] by BurntSushi for his awesome wiki
+
 ### Changelog
 
 All notable changes to this project will be documented in [this] file
@@ -94,11 +105,25 @@ Copyright (c) **2017** by **Sotirios M. Roussis**. Some rights reserved.
 
 `grklsh` is under the terms of the MIT License, following all clarifications stated in the [license] file
 
-
 <!--- Links -->
 
-[banner]: /imgs/banner.jpg
 [here]: https://www.python.org/downloads/windows/
+[nfldb]: https://github.com/BurntSushi/nfldb
+
+<!--- Anchors -->
+
+[Greek &#10141; Greeklish]: #greek--greeklish
+[Any language &#10141; Greeklish]: #any-language--greeklish
+[Files containing Greek &#10141; New files in Greeklish]: #files-containing-greek--new-files-in-greeklish
+[Files containing Greek &#10141; New files in Greeklish (PARTIALLY)]: #files-containing-greek--new-files-in-greeklish-partially
+
+<!--- Images -->
+
+[banner]: /imgs/flag.jpg
+[board]: /imgs/board.png
+
+<!--- MDs -->
+
 [guide]: WINDOWS_INSTALLATION.md
 [this]: CHANGELOG.md
 [license]: LICENSE.md
