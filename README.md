@@ -9,7 +9,7 @@
 <a href="https://en.wikipedia.org/wiki/Greeklish">
     <img src="/imgs/banner.jpg" alt="grklsh logo"
          title="Greeklish Banner" align="right"
-         		width="80%"/>
+         		width="35%"/>
 </a>
 
 #### Features
