@@ -2,15 +2,15 @@
 
 > Greeklish, a portmanteau of the words Greek and English, also known as Grenglish, Latinoellinika/Λατινοελληνικά or ASCII Greek, is the Greek language written using the Latin alphabet.
 
-### About
-
-`grklsh` is a small script written in **Python 2** that translates any text into Greeklish. It reads from stdin or from the arguments and prints on stdout or writes to files.
-
 <a href="https://en.wikipedia.org/wiki/Greeklish">
     <img src="/imgs/board.png" alt="grklsh logo"
          title="Greeklish Banner" align="right"
-         		width="32%"/>
+         		width="35%"/>
 </a>
+
+### About
+
+`grklsh` is a small script written in **Python 2** that translates any text into Greeklish. It reads from stdin or from the arguments and prints on stdout or writes to files.
 
 #### Features
 
