@@ -155,10 +155,10 @@ Copyright (c) **2017** by **Sotirios M. Roussis**. Some rights reserved.
 
 [Greek &#10141; Greeklish]: #greek--greeklish
 [Any language &#10141; Greeklish]: #any-language--greeklish
-[Any language files &#10141; New files in Greeklish]: fds
-[Any language files &#10141; New files in Greeklish (PARTIALLY)]: fdsS
-[Files with Greek characters &#10141; New files in Greeklish]: #files-containing-greek--new-files-in-greeklish
-[Files with Greek characters &#10141; New files in Greeklish (PARTIALLY)]: #files-containing-greek--new-files-in-greeklish-partially
+[Any language files &#10141; New files in Greeklish]: #any-language-files--new-files-in-greeklish
+[Any language files &#10141; New files in Greeklish (PARTIALLY)]: #any-language-files--new-files-in-greeklish-partially
+[Files with Greek characters &#10141; New files in Greeklish]: #files-with-greek-characters--new-files-in-greeklish
+[Files with Greek characters &#10141; New files in Greeklish (PARTIALLY)]: #files-with-greek-characters--new-files-in-greeklish-partially
 
 <!--- Images -->
 
