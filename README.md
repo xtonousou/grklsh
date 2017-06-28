@@ -98,7 +98,7 @@ In this case, you have to do it like this,
 $ grklsh.py -w -t file1 -w file2 -t file3 -t -w file4 file5
 ```
 
-Well, this example will generate a translated file `file1.grklsh` and a converted (Greek &#10141 Greeklish) file `file2.grklsh`, print the file `file3` translated, generate a translated file `file4.grklsh` and print the file `file5` as it is :triumph:
+Well, this example will generate a translated file `file1.grklsh` and a converted (Greek &#10141; Greeklish) file `file2.grklsh`, print the file `file3` translated, generate a translated file `file4.grklsh` and print the file `file5` as it is :triumph:
 
 ##### Files with Greek characters &#10141; New files in Greeklish
 
