@@ -14,8 +14,10 @@
 
 #### Features
 
-* <kbd>Type</kbd> and <kbd>Enter</kbd> translation (Any language &#10141; Greeklish)
-* File translation (Currently only Greek &#10141; Greeklish)
+* <kbd>Type</kbd> and <kbd>Enter</kbd> translation
+* File translation
+
+**Any language &#10141; Greeklish**
 
 ### Installation
 
@@ -37,10 +39,14 @@ You can read this [guide]
 
 #### Table Of Contents
 
-* [Greek &#10141; Greeklish]
-* [Any language &#10141; Greeklish]
-* [Files containing Greek &#10141; New files in Greeklish]
-* [Files containing Greek &#10141; New files in Greeklish (PARTIALLY)]
+* <kbd>Type</kbd> and <kbd>Enter</kbd> translation
+  * [Greek &#10141; Greeklish] *does not require internet connection*
+  * [Any language &#10141; Greeklish] *requires internet connection*
+* File translation
+  * [Any language files &#10141; New files in Greeklish] *requires internet connection*
+  * [Any language files &#10141; New files in Greeklish (PARTIALLY)] *requires internet connection*
+  * [Files with Greek characters &#10141; New files in Greeklish] *does not require internet connection*
+  * [Files with Greek characters &#10141; New files in Greeklish (PARTIALLY)] *does not require internet connection*
 
 ##### Greek &#10141; Greeklish
 
@@ -58,9 +64,44 @@ You need to put the `-t` or `--translate` argument first like this,
 $ grklsh.py -t
 ```
 
-##### Files containing Greek &#10141; New files in Greeklish
+##### Any language files &#10141; New files in Greeklish
 
 OK, this one is a bit tricky :smirk:
+
+You have to put the `-t` or `--translate` and `-w` or `--write` arguments before each filename
+
+The following example will show you how to use this feature,
+
+```bash
+$ grklsh.py -t -w file1
+```
+
+This will generate the translated file `file1.grklsh`
+
+
+If you want to translate multiple files at once,
+*It doesn't matter the order of the arguments*
+
+```bash
+$ grklsh.py -t -w file1 -w -t file2 -t -w file3
+```
+
+This one, will generate three translated files: `file1.grklsh`, `file2.grklsh` and `file3.grklsh`
+
+##### Any language files &#10141; New files in Greeklish (PARTIALLY)
+
+:interrobang: Wait what?
+
+In this case, you have to do it like this,
+
+```bash
+$ grklsh.py -w -t file1 -w file2 -t file3 -t -w file4 file5
+```
+
+Well, this example will generate a translated file `file1.grklsh` and a converted (Greek &#10141 Greeklish) file `file2.grklsh`, print the file `file3` translated, generate a translated file `file4.grklsh` and print the file `file5` as it is :triumph:
+
+##### Files with Greek characters &#10141; New files in Greeklish
+
 You have to put the `-w` or `--write` argument before each filename
 
 The example below shows how to translate a file into Greeklish and generate a file `file1.grklsh` which contains the translated text
@@ -77,7 +118,7 @@ $ grklsh.py -w file1 -w file2 -w file3
 
 This will generate three files: `file1.grklsh`, `file2.grklsh` and `file3.grklsh` which contain the translated text of each file passed as argument
 
-##### Files containing Greek &#10141; New files in Greeklish (PARTIALLY)
+##### Files with Greek characters &#10141; New files in Greeklish (PARTIALLY)
 
 Hmmm? :confused:
 
@@ -114,8 +155,10 @@ Copyright (c) **2017** by **Sotirios M. Roussis**. Some rights reserved.
 
 [Greek &#10141; Greeklish]: #greek--greeklish
 [Any language &#10141; Greeklish]: #any-language--greeklish
-[Files containing Greek &#10141; New files in Greeklish]: #files-containing-greek--new-files-in-greeklish
-[Files containing Greek &#10141; New files in Greeklish (PARTIALLY)]: #files-containing-greek--new-files-in-greeklish-partially
+[Any language files &#10141; New files in Greeklish]: fds
+[Any language files &#10141; New files in Greeklish (PARTIALLY)]: fdsS
+[Files with Greek characters &#10141; New files in Greeklish]: #files-containing-greek--new-files-in-greeklish
+[Files with Greek characters &#10141; New files in Greeklish (PARTIALLY)]: #files-containing-greek--new-files-in-greeklish-partially
 
 <!--- Images -->
 
