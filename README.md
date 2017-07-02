@@ -1,12 +1,6 @@
-### grklsh
+### grklsh [![Build Status](https://travis-ci.org/xtonousou/grklsh.svg?branch=master)](https://travis-ci.org/xtonousou/grklsh)
 
 > Greeklish, a portmanteau of the words Greek and English, also known as Grenglish, Latinoellinika/Λατινοελληνικά or ASCII Greek, is the Greek language written using the Latin alphabet.
-
-<a href="https://en.wikipedia.org/wiki/Greeklish">
-    <img src="/imgs/board.png" alt="grklsh logo"
-         title="Greeklish Banner" align="right"
-         		width="40%"/>
-</a>
 
 ### About
 
@@ -18,6 +12,12 @@
 * File translation
 
 **Any language &#10141; Greeklish**
+
+<a href="https://en.wikipedia.org/wiki/Greeklish">
+    <img src="/imgs/board.png" alt="grklsh logo"
+         title="Greeklish Banner" align="right"
+         		width="40%"/>
+</a>
 
 ### Installation
 
