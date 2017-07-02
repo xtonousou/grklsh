@@ -4,13 +4,13 @@
 
 ### About
 
-`grklsh` is a small script written in **Python 2** that translates any text into Greeklish. It reads from stdin or from the arguments and prints on stdout or writes to files.
-
 <a href="https://en.wikipedia.org/wiki/Greeklish">
     <img src="/imgs/board.png" alt="grklsh logo"
          title="Greeklish Banner" align="right"
          		width="40%"/>
 </a>
+
+`grklsh` is a small script written in **Python 2** that translates any text into Greeklish. It reads from stdin or from the arguments and prints on stdout or writes to files.
 
 #### Features
 
